@@ -1,0 +1,132 @@
+:root {
+  --green: #00b755;
+  --yellow: #daaf38;
+  --red: #ca4754;
+  --black: rgb(31, 31, 31);
+  --gray: #999;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--black);
+  font-family: monospace;
+  display: grid;
+  justify-content: center;
+  margin-top: 30px;
+  padding: 60px;
+}
+
+section {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 500px;
+  color: var(--gray);
+}
+
+#game {
+  display: flex;
+}
+
+#results {
+  display: none;
+}
+
+h2 {
+  font-size: 30px;
+  color: #ede9e9;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 35px;
+  font-weight: 200;
+  color: var(--yellow);
+}
+
+#btn-reload {
+  background: transparent;
+  border: none;
+  margin-top: 20px;
+  opacity: 0.7;
+  display: inline-block;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#btn-reload:hover {
+  background-color: #999;
+  opacity: 1;
+}
+
+time {
+  color: var(--yellow);
+  font-size: 22px;
+}
+
+input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  opacity: 0;
+}
+
+p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px 12px;
+  font-size: 20px;
+}
+
+.letter {
+  position: relative;
+}
+
+.letter.active::before {
+  content: "|";
+  color: var(--yellow);
+  font-size: 20px;
+  position: absolute;
+  left: -70%;
+  animation: 1s blink infinite ease-in-out;
+}
+
+.letter.active.is-last::before {
+  left: 70%;
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 0;
+  }
+}
+
+.correct {
+  color: var(--green);
+}
+
+.incorrect {
+  color: var(--red);
+}
+
+.word {
+  border-bottom: 1.5px solid transparent;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.word.marked {
+  border-color: var(--red);
+}
